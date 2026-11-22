@@ -9,6 +9,9 @@ module.exports = {
     // filename: "app.js",
     path: path.resolve(__dirname, "public"),
   },
+  resolve: {
+    extensions: [".js", ".tsx", ".ts", "..."],
+  },
   module: {
     rules: [
       {
@@ -34,12 +37,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.m?js$/,
+        test: /\.(m?js|tsx?)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
           },
         },
       },
